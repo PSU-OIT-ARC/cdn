@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html>
+<head>
+<title>ARC CDN</title>
+<script src="/jquery/1.11.1/jquery-1.11.1.min.js"></script>
+<script src="/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="/js-yaml/3.0.2/js-yaml.min.js"></script>
+<script src="/underscore.js/1.7.0/underscore-min.js"></script>
+<style text="text/css">
+pre:before {
+    content:attr(data-version);
+    float:right;
+    font-weight:bold;
+    line-height:1px;
+    font-size:16px;
+}
+</style>
+<script>
+$(document).ready(function(){
+    $.get("libs.yaml", function(data){
+        var libs = jsyaml.load(data);
+        render(libs);
+    });
+});
+
+function render(libs){
+    var output = [];
+    var path = "//" + window.location.hostname;
+    var lib_names = _.keys(libs);
+    lib_names.sort()
+    for(var i = 0; i < lib_names.length; i++){
+        var name = lib_names[i];
+        var info = libs[name];
+        output.push("<h1>" + name + "</h1>");
+        if(info.comment){
+            output.push(info.comment)
+        }
+        for(var version in info.versions){
+            var example = info.versions[version];
+            output.push("<pre data-version='" + _.escape(version) + "'>" + _.escape(example.replace(/\$PATH/g, path)) + "</pre>");
+        }
+    }
+    $('#content').html(output.join("\n"))
+}
+</script>
+</head>
+<body class="container">
+<a class="btn btn-primary pull-right" href="https://github.com/PSU-OIT-ARC/cdn">Add a Library</a>
+<div id="content"></div>
+</body>
+</html>
+
+
