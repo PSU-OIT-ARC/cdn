@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 function render(libs){
     var output = [];
-    var path = "//" + window.location.hostname;
+    var base_path = "//" + window.location.hostname;
     var lib_names = _.keys(libs);
     lib_names.sort()
     for(var i = 0; i < lib_names.length; i++){
@@ -38,6 +38,7 @@ function render(libs){
             output.push(info.comment)
         }
         for(var version in info.versions){
+            var path = [base_path, name, version].join("/")
             var example = info.versions[version];
             output.push("<pre data-version='" + _.escape(version) + "'>" + _.escape(example.replace(/\$PATH/g, path)) + "</pre>");
         }
