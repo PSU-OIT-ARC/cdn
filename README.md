@@ -1,6 +1,8 @@
 cdn
 ===
 
+http://cdn.research.pdx.edu/
+
 This repo contains the libraries we commonly use on web projects.
 
 ## To add/update a library
