@@ -1,0 +1,7 @@
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods "GET"
+
+# Far future caching
+ExpiresActive on
+ExpiresDefault "access plus 10 years"
+FileETag none
