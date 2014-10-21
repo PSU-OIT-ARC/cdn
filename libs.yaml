@@ -54,3 +54,8 @@ underscore.js:
     versions:
         1.7.0: |
             <script src="$PATH/underscore-min.js"></script>
+centos:
+    comment: Vagrant box for centos
+    versions:
+        6.5: https:$PATH/centos.box
+
