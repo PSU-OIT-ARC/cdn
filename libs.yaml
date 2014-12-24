@@ -33,6 +33,9 @@ jqueryui:
         1.11.1: |
             <script src="$PATH/jquery-ui.min.js"></script>
             <link rel="stylesheet" href="$PATH/jquery-ui.min.css">
+        1.11.2: |
+            <script src="$PATH/jquery-ui.min.js"></script>
+            <link rel="stylesheet" href="$PATH/jquery-ui.min.css">
 tinymce:
     comment: |
         TinyMCE is a platform independent web based Javascript HTML WYSIWYG
