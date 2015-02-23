@@ -71,3 +71,8 @@ centos:
     versions:
         0.0.1: |
             <script src="$PATH/annoy.js"></script>
+"ffmpeg":
+    comment: Static build of ffmpeg courtesy of http://johnvansickle.com/ffmpeg/
+    versions:
+        2.4.3: |
+            wget https:$PATH/ffmpeg
