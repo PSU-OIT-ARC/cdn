@@ -66,4 +66,8 @@ centos:
     comment: Vagrant box for centos
     versions:
         6.5: https:$PATH/centos.box
-
+"annoy-a-tron":
+    comment: Script for annoying users of staging websites
+    versions:
+        0.0.1: |
+            <script src="$PATH/annoy.js"></script>
