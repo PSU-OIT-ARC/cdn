@@ -76,3 +76,8 @@ centos:
     versions:
         2.4.3: |
             wget https:$PATH/ffmpeg
+"tableToCSV":
+    comment: Converts an HTML table to CSV
+    versions:
+        1.0.0: |
+            <script src="$PATH/tableToCSV.js"></script>
