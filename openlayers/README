@@ -1,0 +1,24 @@
+To add a new version of OpenLayers:
+
+- Download a "dist" release from GitHub into this directory:
+
+  $ wget https://github.com/openlayers/ol3/releases/download/vX.Y.Z/vX.Y.Z-dist.zip
+
+- Unzip that file:
+
+  $ unzip vX.Y.Z-dist.zip
+
+  You'll end with a directory structure like this:
+
+    - vX.Y.Z-dist/
+                  ol-debug.js
+                  ol.css
+                  ol.js
+
+- Move the zip file somewhere outside the repo (or delete it).
+
+- Rename vX.Y.Z-dist to just X.Y.Z.
+
+- Open X.Y.Z/ol.js and change `define([], factory);` to
+  `define('ol', [], factory);`. This is to make AMD loading work in
+  production.
