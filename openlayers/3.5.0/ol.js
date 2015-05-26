@@ -4,7 +4,7 @@
 
 (function (root, factory) {
   if (typeof define === "function" && define.amd) {
-    define([], factory);
+    define('ol', [], factory);
   } else if (typeof exports === "object") {
     module.exports = factory();
   } else {
