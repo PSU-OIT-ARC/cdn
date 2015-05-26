@@ -41,6 +41,14 @@ jqueryui:
         1.11.1: |
             <script src="$PATH/jquery-ui.min.js"></script>
             <link rel="stylesheet" href="$PATH/jquery-ui.min.css">
+openlayers:
+    comment: |
+        OpenLayers 3 is a high-performance, feature-packed library for creatingr
+        interactive maps on the web.
+    versions:
+        3.5.0: |
+            <script src="$PATH/ol.js"></script>
+            <link rel="stylesheet" href="$PATH/ol.css">
 tinymce:
     comment: |
         TinyMCE is a platform independent web based Javascript HTML WYSIWYG
