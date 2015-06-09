@@ -49,6 +49,9 @@ openlayers:
         OpenLayers 3 is a high-performance, feature-packed library for creatingr
         interactive maps on the web.
     versions:
+        3.6.0: |
+            <script src="$PATH/ol.js"></script>
+            <link rel="stylesheet" href="$PATH/ol.css">
         3.5.0: |
             <script src="$PATH/ol.js"></script>
             <link rel="stylesheet" href="$PATH/ol.css">
