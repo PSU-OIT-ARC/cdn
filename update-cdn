@@ -1,0 +1,14 @@
+#!/bin/bash
+# NOTE: This probably won't work if you don't have SSH agent forwarding
+# enabled for hrimfaxi.
+cmd="cd /vol/www/cdn && git pull"
+echo 'Updating ARC CDN'
+echo 'Run `git pull` in /vol/www/cdn on hrimfaxi?'
+read -n 1 -p 'Hit y to continue or any other key to abort ' answer
+echo
+if [ "$answer" = "n" ]; then
+    echo "Aborted"
+elif [ "$answer" = "y" ]; then
+    echo "Running $cmd..."
+    ssh hrimfaxi.oit.pdx.edu "$cmd"
+fi
