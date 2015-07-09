@@ -1,24 +1,38 @@
-To add a new version of OpenLayers:
+#!/bin/bash
+# How to add a new version of OpenLayers
+# This README is runnable: `XYZ="3.7.0" bash README`
 
-- Download a "dist" release from GitHub into this directory:
+# Download a "dist" release from GitHub into this directory
 
-  $ wget https://github.com/openlayers/ol3/releases/download/vX.Y.Z/vX.Y.Z-dist.zip
+wget https://github.com/openlayers/ol3/releases/download/v${XYZ}/v${XYZ}-dist.zip
 
-- Unzip that file:
+# Unzip that file:
 
-  $ unzip vX.Y.Z-dist.zip
+unzip v${XYZ}-dist.zip
 
-  You'll end with a directory structure like this:
+# You'll end with a directory structure like this:
 
-    - vX.Y.Z-dist/
-                  ol-debug.js
-                  ol.css
-                  ol.js
+    # v${XYZ}-dist/
+                  # ol-debug.js
+                  # ol.css
+                  # ol.js
 
-- Move the zip file somewhere outside the repo (or delete it).
+# Move the zip file somewhere outside the repo (or delete it)
 
-- Rename vX.Y.Z-dist to just X.Y.Z.
+rm v${XYZ}-dist.zip
 
-- Open X.Y.Z/ol.js and change `define([], factory);` to
-  `define('ol', [], factory);`. This is to make AMD loading work in
-  production.
+# Rename the dist directory
+
+mv v${XYZ}-dist ${XYZ}
+
+# Open ${XYZ}/ol.js and change this line:
+
+      # define([], factory);
+
+  # to:
+
+      # define('ol', [], factory);
+
+  # This is to make AMD loading work in production.
+
+# Add new version to libs.yaml
