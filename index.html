@@ -3,15 +3,6 @@
     <head>
         <title>ARC CDN</title>
         <link rel="stylesheet" href="/bootstrap/3.2.0/css/bootstrap.min.css">
-        <style>
-            pre:before {
-                content: attr(data-version);
-                float: right;
-                font-weight: bold;
-                line-height: 1px;
-                font-size: 16px;
-            }
-        </style>
     </head>
 
     <body class="container">
@@ -56,17 +47,38 @@
                     info = libs[name];
                     output.push(['<h1>', name, '</h1>'].join(''));
                     if (info.comment) {
-                        output.push(info.comment);
+                        output.push(['<p>', info.comment, '</p>'].join(''));
                     }
+                    output.push('<table class="table table-striped">');
+                    output.push('<tbody>');
                     for (version in info.versions) {
                         path = [basePath, name, version].join('/');
                         example = info.versions[version];
+                        output.push('<tr>');
                         output.push([
-                            '<pre data-version="', _.escape(version), '">',
-                                _.escape(example.replace(/\$PATH/g, path)),
-                            '</pre>'
+                            '<td class="col-xs-11">',
+                                '<code>',
+                                    example
+                                        .replace(/^\s+/, '')
+                                        .replace(/\s+$/, '')
+                                        .replace(/</g, '&lt;')
+                                        .replace(/>/g, '&gt;')
+                                        .replace(/\$PATH/g, path)
+                                        .replace(/ href="(.+)"/g, ' href="<a href="$1">$1</a>"')
+                                        .replace(/ src="(.+)"/g, ' src="<a href="$1">$1</a>"')
+                                        .replace(/(\n|\r\n|\r)/g, '<br>'),
+                                '</code>',
+                            '</td>'
                         ].join(''));
+                        output.push([
+                            '<td class="col-xs-1 text-right">',
+                                '<strong>', version, '</strong>',
+                            '</td>'
+                        ].join(''));
+                        output.push('</tr>');
                     }
+                    output.push('</tbody>');
+                    output.push('</table>');
                 }
                 $('#content').html(output.join('\n'));
             }
