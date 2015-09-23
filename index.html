@@ -1,56 +1,75 @@
-
 <!doctype html>
 <html>
-<head>
-<title>ARC CDN</title>
-<script src="/jquery/1.11.1/jquery-1.11.1.min.js"></script>
-<script src="/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="/js-yaml/3.0.2/js-yaml.min.js"></script>
-<script src="/underscore.js/1.7.0/underscore-min.js"></script>
-<style text="text/css">
-pre:before {
-    content:attr(data-version);
-    float:right;
-    font-weight:bold;
-    line-height:1px;
-    font-size:16px;
-}
-</style>
-<script>
-$(document).ready(function(){
-    $.get("libs.yaml", function(data){
-        var libs = jsyaml.load(data);
-        render(libs);
-    });
-});
+    <head>
+        <title>ARC CDN</title>
+        <link rel="stylesheet" href="/bootstrap/3.2.0/css/bootstrap.min.css">
+        <style>
+            pre:before {
+                content: attr(data-version);
+                float: right;
+                font-weight: bold;
+                line-height: 1px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
 
-function render(libs){
-    var output = [];
-    var base_path = "//" + window.location.hostname;
-    var lib_names = _.keys(libs);
-    lib_names.sort()
-    for(var i = 0; i < lib_names.length; i++){
-        var name = lib_names[i];
-        var info = libs[name];
-        output.push("<h1>" + name + "</h1>");
-        if(info.comment){
-            output.push(info.comment)
-        }
-        for(var version in info.versions){
-            var path = [base_path, name, version].join("/")
-            var example = info.versions[version];
-            output.push("<pre data-version='" + _.escape(version) + "'>" + _.escape(example.replace(/\$PATH/g, path)) + "</pre>");
-        }
-    }
-    $('#content').html(output.join("\n"))
-}
-</script>
-</head>
-<body class="container">
-<a class="btn btn-primary pull-right" href="https://github.com/PSU-OIT-ARC/cdn">Add a Library</a>
-<div id="content"></div>
-</body>
+    <body class="container">
+        <h1>ARC Content Delivery Network</h1>
+
+        <p class="lead">
+            <a href="http://www.pdx.edu/arc/">ARC</a> hosts various JavaScript libraries and other
+            static files for use in its Web projects here.
+        </p>
+
+        <div>
+            <a class="btn btn-primary pull-right" href="https://github.com/PSU-OIT-ARC/cdn">
+                Add a Library
+            </a>
+        </div>
+
+        <div id="content">
+            <!-- Libraries will be inserted here -->
+        </div>
+
+        <script src="/jquery/2.1.1/jquery-2.1.1.min.js"></script>
+        <script src="/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="/js-yaml/3.0.2/js-yaml.min.js"></script>
+        <script src="/underscore.js/1.7.0/underscore-min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $.get('libs.yaml')
+                    .then(function (data) {
+                        var libs = jsyaml.load(data);
+                        render(libs);
+                    });
+            });
+
+            function render (libs) {
+                var output = [],
+                    basePath = '//' + window.location.hostname,
+                    libNames = _.keys(libs),
+                    i, name, info, version, path, example;
+                libNames.sort()
+                for (i = 0; i < libNames.length; ++i) {
+                    name = libNames[i];
+                    info = libs[name];
+                    output.push(['<h1>', name, '</h1>'].join(''));
+                    if (info.comment) {
+                        output.push(info.comment);
+                    }
+                    for (version in info.versions) {
+                        path = [basePath, name, version].join('/');
+                        example = info.versions[version];
+                        output.push([
+                            '<pre data-version="', _.escape(version), '">',
+                                _.escape(example.replace(/\$PATH/g, path)),
+                            '</pre>'
+                        ].join(''));
+                    }
+                }
+                $('#content').html(output.join('\n'));
+            }
+        </script>
+    </body>
 </html>
-
-
