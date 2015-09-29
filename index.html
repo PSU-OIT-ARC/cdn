@@ -54,21 +54,18 @@
                     for (version in info.versions) {
                         path = [basePath, name, version].join('/');
                         example = info.versions[version];
+                        example = example
+                            .replace(/^\s+/, '')
+                            .replace(/\s+$/, '')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;')
+                            .replace(/\$PATH/g, path)
+                            .replace(/ href="(.+)"/g, ' href="<a href="$1">$1</a>"')
+                            .replace(/ src="(.+)"/g, ' src="<a href="$1">$1</a>"')
+                            .replace(/(\n|\r\n|\r)/g, '<br>');
                         output.push('<tr>');
                         output.push([
-                            '<td class="col-xs-11">',
-                                '<code>',
-                                    example
-                                        .replace(/^\s+/, '')
-                                        .replace(/\s+$/, '')
-                                        .replace(/</g, '&lt;')
-                                        .replace(/>/g, '&gt;')
-                                        .replace(/\$PATH/g, path)
-                                        .replace(/ href="(.+)"/g, ' href="<a href="$1">$1</a>"')
-                                        .replace(/ src="(.+)"/g, ' src="<a href="$1">$1</a>"')
-                                        .replace(/(\n|\r\n|\r)/g, '<br>'),
-                                '</code>',
-                            '</td>'
+                            '<td class="col-xs-11">', '<code>', example, '</code>', '</td>'
                         ].join(''));
                         output.push([
                             '<td class="col-xs-1 text-right">',
