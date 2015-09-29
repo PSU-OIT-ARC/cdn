@@ -108,5 +108,5 @@ underscore.js:
 "vagrant/boxes":
     comment: Vagrant boxes
     versions:
-        "box-cutter/centos67": <a href="$PATH.box">Boxcutter CentOS 6.7 box</a>
+        "boxcutter/centos67": <a href="$PATH.box">Boxcutter CentOS 6.7 box</a>
         "unknown/centos65": <a href="$PATH.box">Unknown CentOS 6.5 box (bento?)</a>
