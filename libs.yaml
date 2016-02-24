@@ -30,6 +30,8 @@ jquery:
     versions:
         2.1.1: |
             <script src="$PATH/jquery-2.1.1.min.js"></script>
+        1.12.1: |
+            <script src="$PATH/jquery-1.12.1.min.js"></script>
         1.11.3: |
             <script src="$PATH/jquery-1.11.3.min.js"></script>
         1.11.2: |
