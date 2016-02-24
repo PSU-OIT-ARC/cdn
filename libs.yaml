@@ -28,6 +28,8 @@ jquery:
         animation, and Ajax much simpler with an easy-to-use API that works
         across a multitude of browsers.
     versions:
+        2.2.1: |
+            <script src="$PATH/jquery-2.2.1.min.js"></script>
         2.1.1: |
             <script src="$PATH/jquery-2.1.1.min.js"></script>
         1.12.1: |
