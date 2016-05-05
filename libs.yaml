@@ -61,18 +61,11 @@ jqueryui:
 leaflet:
     comment: |
         Leaflet is the leading open-source JavaScript library for mobile-friendly
-        interactive maps. Base library is in 0.7.7/ and extensions and add-ons are
-        in 0.0.0/.
+        interactive maps.
     versions:
         0.7.7: |
             <script src="$PATH/leaflet.js"></script>
             <link rel="stylesheet" href="$PATH/leaflet.css">
-        0.0.0: |
-            <script src="$PATH/leaflet.ajax.min.js"></script>
-            <script src="$PATH/leaflet-hash.js"></script>
-            <script src="$PATH/leaflet.markercluster.js"></script>
-            <script src="$PATH/leaflet-geojson-selector.min.js"></script>
-            <link rel="stylesheet" href="$PATH/leaflet-geojson-selector.min.css">
 openlayers:
     comment: |
         OpenLayers 3 is a high-performance, feature-packed library for creating
