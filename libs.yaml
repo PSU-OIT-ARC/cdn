@@ -32,6 +32,8 @@ jquery:
             <script src="$PATH/jquery-2.2.1.min.js"></script>
         2.1.1: |
             <script src="$PATH/jquery-2.1.1.min.js"></script>
+        1.12.4: |
+            <script src="$PATH/jquery-1.12.4.min.js"></script>
         1.12.3: |
             <script src="$PATH/jquery-1.12.3.min.js"></script>
         1.12.2: |
