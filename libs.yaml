@@ -60,6 +60,14 @@ jqueryui:
         1.11.1: |
             <script src="$PATH/jquery-ui.min.js"></script>
             <link rel="stylesheet" href="$PATH/jquery-ui.min.css">
+leaflet:
+    comment: |
+        Leaflet is the leading open-source JavaScript library for mobile-friendly
+        interactive maps.
+    versions:
+        0.7.7: |
+            <script src="$PATH/leaflet.js"></script>
+            <link rel="stylesheet" href="$PATH/leaflet.css">
 openlayers:
     comment: |
         OpenLayers 3 is a high-performance, feature-packed library for creating
