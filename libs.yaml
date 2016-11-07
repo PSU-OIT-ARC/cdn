@@ -29,7 +29,7 @@ jquery:
         jQuery is a fast, small, and feature-rich JavaScript library. It makes
         things like HTML document traversal and manipulation, event handling,
         animation, and Ajax much simpler with an easy-to-use API that works
-        across a multitude of browsers.
+        across a multitude of browsers.http://download.ephox.com/tinymce/community/tinymce_4.4.3.zip
     versions:
         2.2.1: |
             <script src="$PATH/jquery-2.2.1.min.js"></script>
@@ -111,6 +111,8 @@ tinymce:
         TinyMCE is a platform independent web based Javascript HTML WYSIWYG
         editor control
     versions:
+        4.4.3: |
+          <script src="$PATH/tinymce.min.js"></script>
         4.1.6: |
           <script src="$PATH/tinymce.min.js"></script>
 typeahead.js:
