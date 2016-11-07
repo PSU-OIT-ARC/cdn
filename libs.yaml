@@ -54,6 +54,9 @@ jqueryui:
         jQuery UI is a curated set of user interface interactions, effects,
         widgets, and themes built on top of the jQuery JavaScript Library.
     versions:
+        1.12.1: |
+            <script src="$PATH/jquery-ui.min.js"></script>
+            <link rel="stylesheet" href="$PATH/jquery-ui.min.css">
         1.11.4: |
             <script src="$PATH/jquery-ui.min.js"></script>
             <link rel="stylesheet" href="$PATH/jquery-ui.min.css">
