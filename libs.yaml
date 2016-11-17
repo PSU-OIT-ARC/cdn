@@ -145,7 +145,7 @@ underscore.js:
 "annoy-a-tron":
     comment: Script for annoying users of staging websites
     versions:
-        0.0.1: |
+        0.0.2: |
             <script src="$PATH/annoy.js"></script>
 "ffmpeg":
     comment: Static build of ffmpeg courtesy of http://johnvansickle.com/ffmpeg/
