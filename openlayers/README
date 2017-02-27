@@ -1,14 +1,23 @@
 #!/bin/bash
 # How to add a new version of OpenLayers
-# This README is runnable: `XYZ="3.7.0" bash README`
+# This README is runnable: `README 4.0.1`
+
+if [ -z ${1+x} ]; then
+    echo "Pass version as first arg: README X.Y.Z" 1>&2
+    exit 1
+else
+    XYZ="$1"
+fi
+
+echo "Adding OpenLayers ${XYZ}..."
 
 # Download a "dist" release from GitHub into this directory
 
-wget https://github.com/openlayers/ol3/releases/download/v${XYZ}/v${XYZ}-dist.zip
+wget --no-verbose "https://github.com/openlayers/openlayers/releases/download/v${XYZ}/v${XYZ}-dist.zip"
 
 # Unzip that file:
 
-unzip v${XYZ}-dist.zip
+unzip "v${XYZ}-dist.zip"
 
 # You'll end with a directory structure like this:
 
@@ -19,11 +28,11 @@ unzip v${XYZ}-dist.zip
 
 # Move the zip file somewhere outside the repo (or delete it)
 
-rm v${XYZ}-dist.zip
+rm "v${XYZ}-dist.zip"
 
 # Rename the dist directory
 
-mv v${XYZ}-dist ${XYZ}
+mv "v${XYZ}-dist" "$XYZ"
 
 # Open ${XYZ}/ol.js and change this line:
 
@@ -35,4 +44,14 @@ mv v${XYZ}-dist ${XYZ}
 
   # This is to make AMD loading work in production.
 
+sed -i.bak -e "s/define(\[\], factory);/define('ol', [], factory);/" "${XYZ}/ol.js"
+diff "${XYZ}/ol.js" "${XYZ}/ol.js.bak"
+rm -v "${XYZ}/ol.js.bak"
+
+# Add XYZ directory to git
+
+git add "$XYZ"
+git status
+
 # Add new version to libs.yaml
+echo "Now add OpenLayers ${XYZ} to libs.yaml"
