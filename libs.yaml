@@ -39,6 +39,8 @@ jquery:
         animation, and Ajax much simpler with an easy-to-use API that works
         across a multitude of browsers.http://download.ephox.com/tinymce/community/tinymce_4.4.3.zip
     versions:
+        3.2.1: |
+            <script src="$PATH/jquery-3.2.1.min.js"></script>
         2.2.1: |
             <script src="$PATH/jquery-2.2.1.min.js"></script>
         2.1.1: |
