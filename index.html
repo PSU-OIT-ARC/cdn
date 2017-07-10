@@ -43,10 +43,27 @@
                     libNames = _.keys(libs),
                     i, name, info, version, path, example;
                 libNames.sort()
+
+                output.push(
+                    '<div class="dropdown">',
+                        '<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">',
+                            'Libraries',
+                            '<span class="caret"></span>',
+                        '</button>',
+                        '<ul class="dropdown-menu">'
+                );
+                for (i = 0; i < libNames.length; ++i) {
+                    name = libNames[i];
+                    output.push([
+                        '<li><a href="#', name, '">', name, '</a></li>'
+                    ].join(''));
+                }
+                output.push('</ul>', '</div>');
+
                 for (i = 0; i < libNames.length; ++i) {
                     name = libNames[i];
                     info = libs[name];
-                    output.push(['<h1>', name, '</h1>'].join(''));
+                    output.push(['<h1 id="', name, '">', name, '</h1>'].join(''));
                     if (info.comment) {
                         output.push(['<p>', info.comment, '</p>'].join(''));
                     }
