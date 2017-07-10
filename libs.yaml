@@ -69,6 +69,7 @@ openlayers:
     example: |
         <link rel="stylesheet" href="$PATH/ol.css">
         <script src="$PATH/ol.js"></script>
+        <script src="$PATH/ol-debug.js"></script>
     versions:
         4.2.0:
         4.1.1:
