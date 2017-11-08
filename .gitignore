@@ -1,3 +1,5 @@
-/ffmpeg/
-/pypi/dist/
-/vagrant/boxes/*/
+.env
+
+/cdn/ffmpeg/
+/cdn/pypi/dist/
+/cdn/vagrant/boxes/*/

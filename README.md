@@ -1,7 +1,7 @@
 cdn
 ===
 
-http://cdn.research.pdx.edu/
+https://cdn.wdt.pdx.edu/
 
 This repo contains the libraries we commonly use on web projects.
 
